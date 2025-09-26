@@ -1,11 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, View, Image } from 'react-native';
 
-export default function App() {
+export default function SplashScreen({ navigation }) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigation.replace("Home"); // 👈 Cambia "Home" por tu pantalla principal
+    }, 10000); // ⏱️ 10 segundos
+
+    return () => clearTimeout(timer); // limpiar el temporizador
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text>Carlos vas a comenzar tu primera App!</Text>
-      <StatusBar style="auto" />
+      <Image
+        source={require('./assets/logoMovil.png')}
+        style={styles.logo}
+        resizeMode="contain" // 👉 mejor que "cover" para no deformar
+      />
     </View>
   );
 }
@@ -13,8 +24,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#3B6FB6',
-    alignItems: 'center',
+    backgroundColor: '#ffffffff', // Fondo blanco (puedes cambiarlo)
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  logo: {
+    width: '95%',   // 👈 dejamos 5% de margen a cada lado
+    height: '100%',  // ocupa gran parte de la pantalla sin cortarse
   },
 });
