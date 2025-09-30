@@ -5,7 +5,7 @@ export default function SplashScreen({ navigation }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.replace("Home"); // 👈 Cambia "Home" por tu pantalla principal
-    }, 10000); // ⏱️ 10 segundos
+    }, 1000000); // ⏱️ 10 segundos
 
     return () => clearTimeout(timer); // limpiar el temporizador
   }, []);
@@ -24,11 +24,11 @@ export default function SplashScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffffff', // Fondo blanco (puedes cambiarlo)
+    backgroundColor: '#FFFFFF', // Fondo blanco (puedes cambiarlo)
     justifyContent: 'center',
     alignItems: 'center',
   },
-  logo: {
+  logo: {  
     width: '95%',   // 👈 dejamos 5% de margen a cada lado
     height: '100%',  // ocupa gran parte de la pantalla sin cortarse
   },
