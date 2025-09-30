@@ -1,35 +1,26 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function SplashScreen({ navigation }) {
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigation.replace("Home"); // 👈 Cambia "Home" por tu pantalla principal
-    }, 1000000); // ⏱️ 10 segundos
+import SplashScreen from './SplashScreen';
+import Login from './Login';
+import Home from './Home';
 
-    return () => clearTimeout(timer); // limpiar el temporizador
-  }, []);
+const Stack = createStackNavigator();
 
+export default function App() {
   return (
-    <View style={styles.container}>
-      <Image
-        source={require('./assets/logoMovil.png')}
-        style={styles.logo}
-        resizeMode="contain" // 👉 mejor que "cover" para no deformar
-      />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {/* Pantalla inicial */}
+        <Stack.Screen name="Splash" component={SplashScreen} />
+
+        {/* Login */}
+        <Stack.Screen name="Login" component={Login} />
+
+        {/* Home (pantalla principal) */}
+        <Stack.Screen name="Home" component={Home} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#FFFFFF', // Fondo blanco (puedes cambiarlo)
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  logo: {  
-    width: '95%',   // 👈 dejamos 5% de margen a cada lado
-    height: '100%',  // ocupa gran parte de la pantalla sin cortarse
-  },
-});
