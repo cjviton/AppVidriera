@@ -13,7 +13,7 @@ export default function SplashScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Image
-        source={require('./assets/logoMovil.png')}
+        source={require('../assets/logoMovil.png')}
         style={styles.logo}
         resizeMode="contain"
       />
@@ -33,3 +33,5 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 });
+
+
