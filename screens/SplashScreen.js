@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Image } from 'react-native';
 
@@ -33,5 +34,4 @@ const styles = StyleSheet.create({
     height: '100%',
   },
 });
-
 

@@ -4,7 +4,7 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, ImageBackground } 
 export default function Login({ navigation }) {
   return (
     <ImageBackground
-      source={require('./assets/logoMovil.png')} // 👈 logo como fondo
+      source={require('../assets/logoMovil.png')} // 👈 logo como fondo
       style={styles.background}
       resizeMode="cover"
     >
